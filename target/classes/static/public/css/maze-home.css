@@ -1,0 +1,60 @@
+header {
+    height: 100%;
+}
+
+.circles-home-backkgorud{
+	background-image: url(../img/maze-backgroud-home.jpg);
+    background-repeat: repeat;
+	height: 200px;
+    
+}
+
+.circles-color{
+	background-color:#0080ff;
+	color: #000000;
+}
+
+.circles-color a{
+	background-color:#0080c0;
+	color: #000000;
+}
+
+.nav-logo{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url(../img/maze-logo.jpg);
+	width: 50px;
+	height: 25px;
+}		
+
+.logo{
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 50px;
+	height: 25px;
+}
+
+footer {
+    padding: 10px;
+}
+
+footer address:last-child {
+    margin-bottom: 0;
+}
+
+.black-font{
+	color: #000000;
+}
+
+
+.center-block {
+  display: block;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+
+a:hover {
+	text-decoration:underline;
+    font-weight:bold
+}
