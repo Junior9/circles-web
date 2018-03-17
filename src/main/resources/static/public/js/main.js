@@ -1,15 +1,15 @@
-	angular.module('circles-main', ['ngRoute','ngResource','menu'])
+	angular.module('circles-main', ['ngRoute','ngResource','menu','header'])
 .config(function($routeProvider,$locationProvider) {
 	
 	 $routeProvider.when('/circles', {
          templateUrl: 'public/partials/circles-home.html',
          controller: 'HomeController'
      });	 
-	 
+	 	 
 	 $routeProvider.when('/circles/home/customer', {
          templateUrl: 'public/partials/circles-customer.html',
          controller: 'HomeController'
-     });
+     });	 
 	 
 	 $routeProvider.when('/circles/home/employeer', {
          templateUrl: 'public/partials/circles-employeer.html',
@@ -46,7 +46,10 @@
          controller: 'RoomController'
      });
 	 
-	
+	 $routeProvider.when('/circles/home/course/perfil', {
+         templateUrl: 'public/partials/circles-add-course.html',
+         controller: 'CourseController'
+     });
 	 
 	 //$routeProvider.otherwise({redirectTo:'/home'});
 	

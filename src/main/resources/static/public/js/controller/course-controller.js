@@ -1,4 +1,4 @@
-angular.module('circles-home').controller('CourseController',function ($scope, $http){
+angular.module('circles-main').controller('CourseController',function ($scope, $http){
 
 		
 	});

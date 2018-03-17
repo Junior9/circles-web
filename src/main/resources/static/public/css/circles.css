@@ -34,6 +34,14 @@ header {
 	height: 25px;
 }
 
+.logo-home{
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 200px;
+	height: 100px;
+}
+
+
 footer {
     padding: 10px;
 }

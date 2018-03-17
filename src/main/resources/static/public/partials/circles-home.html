@@ -1,26 +1,36 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4">	
 
-<body class="">
+      <section class="login-form">
 
+        <form method="post" action="#" role="login">
 
-	<div class="row">		
+          <center>
+          	<img src="public/img/circles-logo.jpg" class="img-responsive logo-home" alt="Circles" /> 
+          </center>
 
-		<form class="container">	
-				
-			<div class="form-group">
-				<label for="customerName">Login</label> <input
-					type="text" class="form-control" id="login"
-					placeholder="Login">
-			</div>
-			
-			<div class="form-group">
-				<label for="customerBirthday">Password</label> <input
-					type="password" class="form-control" id="password"
-					placeholder="Password">
-			</div>
-		
-				
-			<button type="submit" class="btn btn-default">Login</button>
-		</form>
+          <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
+          
+          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="required" />
+          
+          
+          <div class="pwstrength_viewport_progress"></div>
+          
+          
+          <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <div>
+            <a href="#">Create account</a> or <a href="#">reset password</a>
+          </div>
+          
+        </form>
+      </section>  
+      </div>
+      
+      <div class="col-md-4"></div>
 
-	</div>
-</body>
+  </div>
+</div>

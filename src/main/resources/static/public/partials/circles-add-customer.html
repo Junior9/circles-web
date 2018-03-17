@@ -1,35 +1,73 @@
-
-<body class="">
-
-	<div class="row">
-		<h3>New customer</h3>
-	</div>
-
-	<div class="row">		
-
-		<form class="container">	
+<body>
+	<div class="container">
+		
+		<ol class="breadcrumb">
+		  <li>Home</li>
+		  <li><a href="#/circles/home/customer">Customer</a></li>
+		  <li class="active">Add customer</li>
+		</ol>
+		
+		
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1>New customer</h1>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	
+		<div class="row">	
+			<div class="col-md-4"></div>
+		
+			<div class="col-md-4">
+				<form method="post" action="#" role="">	
+						
+					<div class="form-group">
+						<label for="customerName">Name</label>
+						<input type="text" class="form-control" id="customerName" placeholder="Name">
+					</div>
+					
+					<div class="form-group">
+						<label for="customerEmail">Email</label> <input
+							type="email" class="form-control" id="customerEmail"
+							placeholder="Email">
+					</div>
 				
-			<div class="form-group">
-				<label for="customerName">Name</label> <input
-					type="text" class="form-control" id="customerName"
-					placeholder="Name">
+					<div class="form-group">
+						<label for="customerLevel">Level</label>
+							<select name="customerLevel" class="form-control">
+								<option value="">Select the level</option>
+							</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="customerStuding">Stunding</label>
+							<select name="customerStuding" class="form-control" >
+								<option value="">Select the studing</option>
+							</select>
+					</div>
+				
+					<div class="form-group">
+						<label for="customerStuding">Phone number</label>
+						<input type="tel" id="customerPhone" class="form-control" name="customerPhone" placeholder="Phone Number">
+					</div>
+					
+					<div class="form-group">
+						<label for="customerPayment">Payment</label>
+						<input type="number" id="customerPayment" class="form-control" name="customerPayment">
+					</div>
+					
+					<div class="form-group">
+						<label for="customerPayment">Feedback</label>
+						<textarea id="customerFeedBack" class="form-control" name="customerFeedBack" cols="40" rows="5">	</textarea>
+					</div>
+					
+					<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
+				</form>
 			</div>
 			
-			<div class="form-group">
-				<label for="customerBirthday">Birthday</label> <input
-					type="date" class="form-control" id="customerBirthday"
-					placeholder="Birthday">
-			</div>
-		
-			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label> <input
-					type="email" class="form-control" id="exampleInputEmail1"
-					placeholder="Email">
-			</div>
-		
-			<button type="submit" class="btn btn-default">Save</button>
-		</form>
-
+			<div class="col-md-4"></div>
+	
+		</div>
 	</div>
-
 </body>

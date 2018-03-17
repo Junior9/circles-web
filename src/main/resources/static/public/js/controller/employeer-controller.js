@@ -1,4 +1,4 @@
-angular.module('circles-home').controller('EmployeerController',function ($scope, $http){
+angular.module('circles-main').controller('EmployeerController',function ($scope, $http){
 
 		
 	});

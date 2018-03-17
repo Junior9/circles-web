@@ -1,4 +1,4 @@
-angular.module('circles-home').controller('RoomController',function ($scope, $http){
+angular.module('circles-main').controller('RoomController',function ($scope, $http){
 
 		
 });

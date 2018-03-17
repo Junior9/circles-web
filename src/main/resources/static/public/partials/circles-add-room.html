@@ -1,30 +1,38 @@
-
-<body class="">
-
-	<div class="row">
-		<h3>New Room</h3>
-	</div>
-
-	<div class="row">		
-
-		<form class="container">	
-				
-			<div class="form-group">
-				<label for="customerName">Number</label> <input
-					type="text" class="form-control" id="customerName"
-					placeholder="Name">
+<body>
+	<div class="container">
+	
+		<ol class="breadcrumb">
+		  <li>Home</li>
+		  <li><a href="#/circles/home/room/">Room</a></li>
+		  <li class="active">Add room</li>
+		</ol>
+	
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1>New room</h1>
 			</div>
-			
-			<div class="form-group">
-				<label for="customerBirthday">Course</label> <input
-					type="date" class="form-control" id="customerBirthday"
-					placeholder="Birthday">
+			<div class="col-md-4"></div>
+		</div>	
+	
+		<div class="row">		
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<form method="post" action="#" role="">	
+					<div class="form-group">
+						<label for="tenantName">Tenant</label> 
+						<input type="text" class="form-control" id="tenantName" name="tenantName" placeholder="Tenant Name">
+					</div>
+					
+					<div class="form-group">
+						<label for="tenantCourse">Course</label> 
+						<input type="text" class="form-control" id="tenantCourse" name="tenantCourse" placeholder="Course">
+					</div>		
+						
+					<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
+				</form>
 			</div>
-		
-				
-			<button type="submit" class="btn btn-default">Save</button>
-		</form>
-
+			<div class="col-md-4"></div>
+		</div>
 	</div>
-
 </body>
