@@ -7,28 +7,28 @@
 
       <section class="login-form">
 
-        <form method="post" action="#" role="login">
-
-          <center>
-          	<img src="public/img/circles-logo.jpg" class="img-responsive logo-home" alt="Circles" /> 
-          </center>
-
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
+        <form method="post" ng-submit="login()" role="login">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+          			<img src="public/img/circles-logo.jpg" class="img-responsive logo-home" alt="Circles" /> 
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+          <input required ng-model="user.email" type="email" name="email" placeholder="Email" required class="form-control input-lg"/>
           
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="required" />
-          
+          <input required ng-model="user.password" type="password" class="form-control input-lg" id="password" placeholder="Password" required="required" />
           
           <div class="pwstrength_viewport_progress"></div>
           
-          
           <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
           <div>
-            <a href="#">Create account</a> or <a href="#">reset password</a>
+            <a href="#/circles/home/user">Create account</a>
           </div>
           
         </form>
       </section>  
-      </div>
+     </div>
       
       <div class="col-md-4"></div>
 

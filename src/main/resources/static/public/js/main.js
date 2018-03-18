@@ -3,7 +3,7 @@
 	
 	 $routeProvider.when('/circles', {
          templateUrl: 'public/partials/circles-home.html',
-         controller: 'HomeController'
+         controller: 'UserController'
      });	 
 	 	 
 	 $routeProvider.when('/circles/home/customer', {
@@ -48,6 +48,11 @@
 	 
 	 $routeProvider.when('/circles/home/course/perfil', {
          templateUrl: 'public/partials/circles-add-course.html',
+         controller: 'CourseController'
+     });
+	 
+	 $routeProvider.when('/circles/home/user', {
+         templateUrl: 'public/partials/circles-add-user.html',
          controller: 'CourseController'
      });
 	 
