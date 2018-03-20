@@ -1,12 +1,12 @@
 package com.eg.circles.circles_web.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eg.circles.circles_web.model.Employeer;
@@ -19,7 +19,7 @@ public class EmployeerController {
 	private EmployeerService employeerService;
 	
 	@GetMapping("/employeer/all")
-	public List<Employeer> getAll(){
+	public Iterable<Employeer> getAll(){
 		return employeerService.getAll();
 	}
 	
@@ -28,8 +28,8 @@ public class EmployeerController {
 		return employeerService.get(idEmployeer);
 	}
 	
-	@PostMapping("/employeer/save")
-	public Employeer save(Employeer employeer) {
+	@PostMapping(value="/employeer/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Employeer save(@RequestBody Employeer employeer) {
 		return employeerService.save(employeer);
 	}
 

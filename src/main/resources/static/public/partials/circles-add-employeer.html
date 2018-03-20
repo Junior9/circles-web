@@ -3,14 +3,14 @@
 	
 		<ol class="breadcrumb">
 		  <li>Home</li>
-		  <li><a href="#/circles/home/employeer/">Employeer</a></li>
-		  <li class="active">Add employeer</li>
+		  <li><a href="#/circles/home/employeer/">Teacher</a></li>
+		  <li class="active">Add teacher</li>
 		</ol>
 		
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<h1>New employeer</h1>
+				<h1>New teacher</h1>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -18,35 +18,33 @@
 		<div class="row">		
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<form method="post" action="#" role="">	
-						
+				<form method="post" ng-submit="save()" role="">	
 					<div class="form-group">
-						<label for="customerName">Name</label> <input
-							type="text" class="form-control" id="customerName"
-							placeholder="Name">
+						<label for="customerName">Name</label> 
+						<input ng-model="employeer.name" type="text" class="form-control" id="customerName" placeholder="Name">
 					</div>
 					
 					
 					<div class="form-group">
 						<label for="customerStuding">Department</label>
-							<select name="employeerDepartment" class="form-control" >
+							<select ng-model="employeer.departement" name="employeerDepartment" class="form-control" >
 								<option value="">Select the departement</option>
 							</select>
 					</div>
 					
 					<div class="form-group">
 						<label for="employeerPhone">Phone number</label>
-						<input type="tel" id="employeerPhone" class="form-control" name="employeerPhone" placeholder="Phone Number">
+						<input ng-model="employeer.phoneNumber"  type="text" id="employeerPhone" class="form-control" name="employeerPhone" placeholder="Phone Number">
 					</div>
 				
 					<div class="form-group">
 						<label for="employeerEmail">Email</label> 
-						<input type="email" class="form-control" id="employeerEmail" name="employeerEmail" placeholder="Email">
+						<input ng-model="employeer.email" type="email" class="form-control" id="employeerEmail" name="employeerEmail" placeholder="Email">
 					</div>
 					
 					<div class="form-group">
 						<label for="customerIsPay">Is pay</label>
-							<select name="customerIsPay" class="form-control" >
+							<select ng-model="employeer.isPay" name="customerIsPay" class="form-control" >
 								<option value="">Select if is Pay</option>
 								<option value="1">Yes</option>
 								<option value="0">No</option>

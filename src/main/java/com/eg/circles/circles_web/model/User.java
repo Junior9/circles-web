@@ -34,8 +34,12 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
+	
 	public Boolean getIsAdm() {
 		return isAdm;
 	}
 
+	public void setIsAdm(Boolean isAdm) {
+		this.isAdm = isAdm;
+	}
 }

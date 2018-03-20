@@ -1,7 +1,5 @@
 package com.eg.circles.circles_web.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,22 +9,19 @@ import com.eg.circles.circles_web.repository.EmployeerRepository;
 @Service
 public class EmployeerService {
 	
-//	@Autowired
+	@Autowired
 	private EmployeerRepository employeerRepository;
 
-	public List<Employeer> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Employeer> getAll() {
+		return employeerRepository.findAll();
 	}
 
 	public Employeer get(int idEmployeer) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public Employeer save(Employeer employeer) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeerRepository.save(employeer);
 	}
 
 	public void delete(int idEmployeer) {

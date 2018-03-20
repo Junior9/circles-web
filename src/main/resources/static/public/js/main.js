@@ -13,7 +13,7 @@
 	 
 	 $routeProvider.when('/circles/home/employeer', {
          templateUrl: 'public/partials/circles-employeer.html',
-         controller: 'HomeController'
+         controller: 'EmployeerController'
      });
 	 
 	 $routeProvider.when('/circles/home/room', {
@@ -24,6 +24,11 @@
 	 $routeProvider.when('/circles/home/course', {
          templateUrl: 'public/partials/circles-courses.html',
          controller: 'HomeController'
+     });	 
+	 
+	 $routeProvider.when('/circles/home/acconunting', {
+         templateUrl: 'public/partials/circles-accounting.html',
+         controller: 'AccountingController'
      });	 
 	 
 	 
@@ -53,7 +58,7 @@
 	 
 	 $routeProvider.when('/circles/home/user', {
          templateUrl: 'public/partials/circles-add-user.html',
-         controller: 'CourseController'
+         controller: 'UserController'
      });
 	 
 	 //$routeProvider.otherwise({redirectTo:'/home'});

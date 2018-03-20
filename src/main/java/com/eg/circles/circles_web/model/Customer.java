@@ -1,7 +1,21 @@
 package com.eg.circles.circles_web.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name = "customer",uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
 public class Customer {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String email;
@@ -9,9 +23,14 @@ public class Customer {
 	private String phoneNumber;
 	private Double payment;
 	private String feedback;
+	
+	@JoinColumn(unique=true)
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Course course;
 	private String studing;
 	
+	Customer(){}
+
 	public int getId() {
 		return id;
 	}

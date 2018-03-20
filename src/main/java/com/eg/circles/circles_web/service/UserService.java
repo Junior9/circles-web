@@ -18,5 +18,14 @@ public class UserService {
 			user = new User("","");
 		}
 		return user;
+	}
+
+	public User save(User user) {
+		user.setIsAdm(false);
+		user = userRepository.save(user);
+		if(user == null){
+			user = new User("","");
+		}
+		return user;
 	}	
 }

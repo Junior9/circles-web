@@ -17,19 +17,21 @@
 		<div class="row">		
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<form method="post" action="#" role="">	
-					<div class="form-group">
-						<label for="userLogin">Login</label> 
-						<input type="text" class="form-control" id="userLogin" name="userLogin" placeholder="Login">
-					</div>
-					
-					<div class="form-group">
-						<label for="userPassword">Password</label> 
-						<input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password">
-					</div>		
+				<section>
+					<form method="post" ng-submit="save()" role="new user">	
+						<div class="form-group">
+							<label for="userLogin">Login</label> 
+							<input ng-model="user.login" type="email" class="form-control" id="userLogin" name="userLogin" placeholder="Login">
+						</div>
 						
-					<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
-				</form>
+						<div class="form-group">
+							<label for="userPassword">Password</label> 
+							<input ng-model="user.password" type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password">
+						</div>		
+							
+						<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
+					</form>
+				</section>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

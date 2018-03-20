@@ -3,8 +3,12 @@
 <body class="">
 
 	<div class="row">
-	 	<center><h3> Employeers </h3></center>
-	</div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+	 		<h3> Teachers </h3>
+	 	</div>
+	 	<div class="col-md-4"></div>
+	</div>	
 
 	<div class="row">	
 		<table class="table  table-striped">
@@ -17,21 +21,24 @@
 				<td class="">Inf.</td>
 			</tr>
 
-			<tr>
-				<td class=""> <a href="#">  Pedrão da Massa </a></td>
-				<td class=""> xxxxx </td>
-				<td> 35334967 </td>
-				<td> Yes </td>
+
+			<tr ng-repeat="employeer in employeers">
+				<td>
+					<a ng-click="update(employeer.id)"> {{employeer.name}}	</a>
+				</td>
+				<td>{{employeer.departement}}</td>
+				<td>{{employeer.phoneNumber}}</td>
+				<td>{{employeer.isPay}}</td>
 				<td class="">
 					<a href="#"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 					</a>
 				</td>
+<!-- 				<td><button class="btn btn-danger" ng-click="deletePromocao(promocao.id)">Deleta</button></td> -->
 			</tr>
-			
 		</table>
 	</div>
 
-	<a class="btn btn-primary"  href="#/circles/home/employeer/perfil"> New Employeer </a>
+	<a class="btn btn-primary"  href="#/circles/home/employeer/perfil"> New teacher </a>
 
 </body>
