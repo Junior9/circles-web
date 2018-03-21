@@ -17,13 +17,13 @@
      });
 	 
 	 $routeProvider.when('/circles/home/room', {
-         templateUrl: 'public/partials/circles-room.html',
-         controller: 'HomeController'	
+         templateUrl:'public/partials/circles-room.html',
+         controller: 'RoomController'	
      });
 	 
 	 $routeProvider.when('/circles/home/course', {
          templateUrl: 'public/partials/circles-courses.html',
-         controller: 'HomeController'
+         controller: 'CourseController'
      });	 
 	 
 	 $routeProvider.when('/circles/home/acconunting', {

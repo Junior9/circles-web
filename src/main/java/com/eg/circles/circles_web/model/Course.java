@@ -31,6 +31,11 @@ public class Course {
 
 	Course(){}
 	
+	public Course(String name, Employeer employeer) {
+		this.name = name;
+		this.employeer = employeer;
+	}
+
 	public int getId() {
 		return id;
 	}

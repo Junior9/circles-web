@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.eg.circles.circles_web.model.Employeer;
 
 @Repository
-public interface EmployeerRepository  extends CrudRepository<Employeer, String> {
+public interface EmployeerRepository extends CrudRepository<Employeer, String> {
 
 }

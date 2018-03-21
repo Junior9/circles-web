@@ -1,12 +1,12 @@
 package com.eg.circles.circles_web.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eg.circles.circles_web.model.Course;
@@ -19,7 +19,7 @@ public class CourseController {
 	private CourseService courseService;
 	
 	@GetMapping("/course/all")
-	public List<Course> getAll() {
+	public Iterable<Course> getAll() {
 		return courseService.getAllCourse();
 	}
 	
@@ -28,8 +28,8 @@ public class CourseController {
 		return courseService.get(idCourse);
 	}
 	
-	@PostMapping("/course/save")
-	public Course save(Course course) {
+	@PostMapping(value="/course/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Course save(@RequestBody Course course) {
 		return courseService.save(course);
 	}
 

@@ -3,7 +3,11 @@
 <body class="">
 	
 	<div class="row">
-		<center><h3>Courses</h3></center>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h3>Courses</h3>
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 
 	<div class="row">
@@ -15,17 +19,20 @@
 				<td class="">Shedule</td>
 			</tr>
 
-			<tr>
-				<td class=""><a href="#">Spanish</a></td>
-				<td class=""><a href="#">Marcos</a></td>
-				<td class="">10</td>
-				<td class=""> 
+			<tr ng-repeat="course in courses">
+				<td>
+					<a ng-click="update(course.id)"> {{course.name}}	</a>
+				</td>
+				<td>{{course.employeer.name}}</td>
+				
+				<td>{{course.customes.length}}</td>
+				
+				<td class="">
 					<a href="#"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 					</a>
 				</td>
 			</tr>
-
 		</table>
 	</div>
 	<a class="btn btn-primary" href="#/circles/home/course/perfil"> New Course </a>

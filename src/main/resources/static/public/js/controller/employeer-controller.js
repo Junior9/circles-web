@@ -1,6 +1,6 @@
 angular.module('circles-main').controller('EmployeerController',function ($scope, $http,$location){
 
-//	$scope.employeer = {};
+	$scope.employeer = {};
 	$scope.employeers = {};
 	$scope.message = '';
 	
@@ -12,9 +12,7 @@ angular.module('circles-main').controller('EmployeerController',function ($scope
 	.catch(function(error){
 		console.log(error)
 	
-	});	
-	
-
+	});
 	
 	$scope.save = function(){
 		
