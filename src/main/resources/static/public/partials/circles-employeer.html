@@ -20,15 +20,18 @@
 				<td class="">Is pay</td>
 				<td class="">Inf.</td>
 			</tr>
-
-
-			<tr ng-repeat="employeer in employeers">
+			
+			<label for="filterName'"> Filter </label>
+			<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">
+			
+			<tr ng-repeat="employeer in employeers | filter : filterName">
 				<td>
 					<a ng-click="update(employeer.id)"> {{employeer.name}}	</a>
 				</td>
 				<td>{{employeer.departement}}</td>
 				<td>{{employeer.phoneNumber}}</td>
 				<td>{{employeer.isPay}}</td>
+				
 				<td class="">
 					<a href="#"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>

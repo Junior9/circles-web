@@ -2,7 +2,11 @@
 
 <body class="">	
 	<div class="row">
-		<center><h3>Room</h3></center>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h3>Room</h3>
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 
 	<div class="row">
@@ -13,22 +17,17 @@
 				<td class="">Tenant</td>
 				<td class="">Shedule</td>
 			</tr>
-
-			<tr>
-				<td ><a href="#"> 1 </a></td>
-				<td >Spanish</td>
-				<td class="">Marcos</td>
-				<td class="">
-					<a href="#"> 
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-					</a>
-				</td>
-			</tr>
 			
-			<tr>
-				<td ><a href="#"> 2 </a></td>
-				<td >Music</td>
-				<td class="">Pedro</td>
+			<label for="filterName'"> Filter </label>
+			<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">
+			<tr ng-repeat="room in rooms | filter : filterName">
+				<td>
+					<a ng-click="update(room.id)"> {{room.id}}	</a>
+				</td>
+				<td>{{room.course}}</td>
+				
+				<td>{{room.tenant}}</td>
+				
 				<td class="">
 					<a href="#"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>

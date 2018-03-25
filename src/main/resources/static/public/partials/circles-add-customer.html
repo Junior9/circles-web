@@ -7,7 +7,6 @@
 		  <li class="active">Add customer</li>
 		</ol>
 		
-		
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
@@ -20,54 +19,63 @@
 			<div class="col-md-4"></div>
 		
 			<div class="col-md-4">
-				<form method="post" action="#" role="">	
+				<form method="post" ng-submit="save()" role="formCustomer">	
 						
 					<div class="form-group">
 						<label for="customerName">Name</label>
-						<input type="text" class="form-control" id="customerName" placeholder="Name">
+						<input ng-model="customer.name" type="text" class="form-control" id="customerName" placeholder="Name">
 					</div>
 					
 					<div class="form-group">
-						<label for="customerEmail">Email</label> <input
-							type="email" class="form-control" id="customerEmail"
-							placeholder="Email">
+						<label for="customerEmail">Email</label> 
+						<input ng-model="customer.email" type="email" class="form-control" id="customerEmail" placeholder="Email">
 					</div>
 				
 					<div class="form-group">
 						<label for="customerLevel">Level</label>
-							<select name="customerLevel" class="form-control">
+							<select ng-model="customer.level" name="customerLevel" class="form-control">
 								<option value="">Select the level</option>
 							</select>
 					</div>
 					
 					<div class="form-group">
 						<label for="customerStuding">Stunding</label>
-							<select name="customerStuding" class="form-control" >
+							<select ng-model="customer.studying" name="customerStuding" class="form-control" >
 								<option value="">Select the studing</option>
+								<option value="0">Primary school</option>
+								<option value="1">Hight school</option>
+								<option value="2">Graduation</option>
+								<option value="3">Master</option>
 							</select>
 					</div>
-				
+					
+					<div class="form-group">
+						<label for="customer.course">Course</label> 
+						<select name="customerCourse" id="customerCourse" class="form-control" ng-model="customer.course" ng-controller="CourseController" 
+								ng-options="course as (course.name | uppercase) for course in courses">
+							<option value="">Select the course</option>
+						</select>
+					</div>					
+					
 					<div class="form-group">
 						<label for="customerStuding">Phone number</label>
-						<input type="tel" id="customerPhone" class="form-control" name="customerPhone" placeholder="Phone Number">
+						<input ng-model="customer.phoneNumber" type="tel" id="customerPhone" class="form-control" name="customerPhone" placeholder="Phone Number">
 					</div>
 					
 					<div class="form-group">
 						<label for="customerPayment">Payment</label>
-						<input type="number" id="customerPayment" class="form-control" name="customerPayment" placeholder="Payment">
+						<input ng-model="customer.payment" type="number" id="customerPayment" class="form-control" name="customerPayment" placeholder="Payment">
 					</div>
 					
 					<div class="form-group">
 						<label for="customerPayment">Feedback</label>
-						<textarea id="customerFeedBack" class="form-control" name="customerFeedBack" cols="40" rows="5">	</textarea>
+						<textarea ng-model="customer.feedback" id="customerFeedBack" class="form-control" name="customerFeedBack" cols="40" rows="5">	</textarea>
 					</div>
 					
 					<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
 				</form>
 			</div>
-			
 			<div class="col-md-4"></div>
-	
 		</div>
 	</div>
 </body>

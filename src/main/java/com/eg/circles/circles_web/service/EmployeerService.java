@@ -24,7 +24,8 @@ public class EmployeerService {
 		return employeerRepository.save(employeer);
 	}
 
-	public void delete(int idEmployeer) {
-		// TODO Auto-generated method stub
+	public void delete(int id) {
+		Employeer employeer = employeerRepository.findById(id);
+		employeerRepository.delete(employeer);
 	}
 }

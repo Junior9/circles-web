@@ -26,7 +26,7 @@ public class Employeer {
 		return id;
 	}
 	public int getDepartment() {
-		return department;
+		return department;	
 	}
 	public String getEmail() {
 		return email;

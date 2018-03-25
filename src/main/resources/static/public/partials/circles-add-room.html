@@ -18,15 +18,15 @@
 		<div class="row">		
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<form method="post" action="#" role="">	
+				<form method="post" ng-submit="save()" role="formRoom">	
 					<div class="form-group">
 						<label for="tenantName">Tenant</label> 
-						<input type="text" class="form-control" id="tenantName" name="tenantName" placeholder="Tenant Name">
+						<input ng-model="room.tenant" type="text" class="form-control" id="tenantName" name="tenantName" placeholder="Tenant Name">
 					</div>
 					
 					<div class="form-group">
 						<label for="tenantCourse">Course</label> 
-						<input type="text" class="form-control" id="tenantCourse" name="tenantCourse" placeholder="Course">
+						<input ng-model="room.course" type="text" class="form-control" id="tenantCourse" name="tenantCourse" placeholder="Course">
 					</div>		
 						
 					<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>

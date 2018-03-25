@@ -14,10 +14,6 @@ angular.module('circles-main').controller('CourseController',function ($scope, $
 
 	
 	$scope.save = function(){
-		
-		console.log($scope.course.name);
-		console.log($scope.course.employeer);
-		
 		$http.post('/course/save',$scope.course)
 		.success(function(course){
 			$scope.course = course;

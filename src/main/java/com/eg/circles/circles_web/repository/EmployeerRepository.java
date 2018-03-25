@@ -7,5 +7,6 @@ import com.eg.circles.circles_web.model.Employeer;
 
 @Repository
 public interface EmployeerRepository extends CrudRepository<Employeer, String> {
-
+	
+	Employeer findById(int id);
 }

@@ -2,11 +2,21 @@ package com.eg.circles.circles_web.model;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "room")
 public class Room {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private Calendar timeDate;
-	private Course course;
+	private String course;
 	private String tenant;
 
 	public int getId() {
@@ -15,7 +25,7 @@ public class Room {
 	public Calendar getTimeDate() {
 		return timeDate;
 	}
-	public Course getCourse() {
+	public String getCourse() {
 		return course;
 	}
 	public String getTenant() {

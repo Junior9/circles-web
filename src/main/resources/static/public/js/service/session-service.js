@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('circles-main', ['ngResource'])
+angular.module('circles-session', ['ngResource'])
 .factory('sessionService',['$http', function($http) {
 	return {
 		set:function(key,value){
@@ -13,4 +13,4 @@ angular.module('circles-main', ['ngResource'])
 			return sessionStorage.removeItem(key);
 		}
 	};	
-}]);	
+}]);

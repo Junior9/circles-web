@@ -23,9 +23,9 @@ public class EmployeerController {
 		return employeerService.getAll();
 	}
 	
-	@GetMapping("/employeer/{idEmployeer}")
-	public Employeer get(@PathVariable int idEmployeer) {
-		return employeerService.get(idEmployeer);
+	@GetMapping("/employeer/{id}")
+	public Employeer get(@PathVariable int id) {
+		return employeerService.get(id);
 	}
 	
 	@PostMapping(value="/employeer/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -33,8 +33,8 @@ public class EmployeerController {
 		return employeerService.save(employeer);
 	}
 
-	@DeleteMapping("/employeer/delete")
-	public void delete(@PathVariable int idEmployeer) {
-		employeerService.delete(idEmployeer);
+	@DeleteMapping("/employeer/delete/{id}")
+	public void delete(@PathVariable int id) {
+		employeerService.delete(id);
 	}
 }

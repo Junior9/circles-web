@@ -1,7 +1,6 @@
 package com.eg.circles.circles_web.service;
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eg.circles.circles_web.model.Customer;
@@ -10,27 +9,22 @@ import com.eg.circles.circles_web.repository.CustomerRepository;
 @Service
 public class CustomerService {
 
-//	@Autowired
+	@Autowired
 	private CustomerRepository customerRepository;
 	
-	public List<Customer> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Customer> getAll() {
+		return  customerRepository.findAll();
 	}
 
 	public Customer get(int idCustomer) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerRepository.findOne(String.valueOf(idCustomer));
 	}
 
 	public Customer save(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerRepository.save(customer);
 	}
 
 	public void delete(int idCustomer) {
-		// TODO Auto-generated method stub
-		
+		customerRepository.delete(String.valueOf(idCustomer));
 	}
-
 }

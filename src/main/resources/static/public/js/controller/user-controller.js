@@ -1,4 +1,4 @@
-angular.module('circles-main').controller('UserController',function ($scope, $http, $location){
+angular.module('circles-main').controller('UserController',function ($scope, $http, $location,sessionService){
 	
 	$scope.user = {};
 	$scope.message = '';
@@ -9,7 +9,7 @@ angular.module('circles-main').controller('UserController',function ($scope, $ht
 			$scope.user = user;
 			if($scope.user.login != ""){
 				console.log("User login : " + $scope.user.login );
-				//sessionService.set('manager',user.id);
+//				sessionService.set('user',user.id);
 				$location.path("/circles/home/customer");
 			}else{
 				console.log("User not found");
