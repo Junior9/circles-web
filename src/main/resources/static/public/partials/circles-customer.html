@@ -22,31 +22,21 @@
 				<td class="">Phone Number</td>
 				<td class="">Inf.</td>
 			</tr>
-
-			<tr>
-				<td class=""><a href="#"> Mohamed </a></td>
-				<td class="">T.I</td>
-				<td class="">2</td>
-				<td> 35334967 </td>
+			
+			<tr ng-repeat="customer in customers | filter : filterName">
+				<td>
+					<a ng-click="update(customer.id)"> {{customer.name}}	</a>
+				</td>
+				<td>{{customer.course.name}}</td>
+				<td>{{customer.level}}</td>
+				<td>{{customer.phoneNumber}}</td>
+				
 				<td class="">
 					<a href="#"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 					</a>
 				</td>
 			</tr>
-
-			<tr>
-				<td class=""><a href="#"> Francisco </a></td>
-				<td class="">Spanish</td>
-				<td class="">4</td>
-				<td> 35334967 </td>
-				<td class="">
-					<a href="#"> 
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-					</a>
-				</td>
-			</tr>
-
 		</table>
 	</div>
 	<a class="btn btn-primary" href="#/circles/home/customer/perfil"> New Customer </a>

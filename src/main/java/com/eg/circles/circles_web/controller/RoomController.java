@@ -23,9 +23,9 @@ public class RoomController {
 		return roomService.getAll();
 	}
 
-	@GetMapping("/room/get/{idRoom}")
-	public Room get(@PathVariable int idRoom) {
-		return roomService.get(idRoom);
+	@GetMapping("/room/{id}")
+	public Room get(@PathVariable int id) {
+		return roomService.get(id);
 	}
 	
 	@PostMapping(value="/room/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

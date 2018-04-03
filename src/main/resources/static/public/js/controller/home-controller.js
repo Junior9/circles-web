@@ -7,7 +7,7 @@ angular.module('circles-main').controller('HomeController',function ($scope, $ht
 		.success(function(manager){
 			$scope.manager = manager;
 			$scope.mensagem = "Login realizado";
-			sessionService.set('manager',manager.id);
+//			sessionService.set('manager',manager.id);
 
 			switch(user.isAdm) {
 			    case 1:
@@ -28,4 +28,4 @@ angular.module('circles-main').controller('HomeController',function ($scope, $ht
 		});	
 	}
 
-});
+});	

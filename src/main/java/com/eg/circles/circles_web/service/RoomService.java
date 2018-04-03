@@ -16,8 +16,8 @@ public class RoomService {
 		return roomRepository.findAll();
 	}
 
-	public Room get(int idRoom) {
-		return roomRepository.findOne(String.valueOf(idRoom));
+	public Room get(int id) {
+		return roomRepository.findById(id);
 	}
 
 	public void delete(int idRoom) {

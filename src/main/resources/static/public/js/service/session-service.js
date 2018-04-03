@@ -1,8 +1,8 @@
 'use strict'
 
-angular.module('circles-session', ['ngResource'])
-.factory('sessionService',['$http', function($http) {
-	return {
+angular.module('employeerService', ['ngResource'])
+.factory('sessionServive',['$htpp', function($http) {
+	return{
 		set:function(key,value){
 			return sessionStorage.setItem(key,value);
 		},

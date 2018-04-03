@@ -23,9 +23,9 @@ public class CustomerController {
 		return customerService.getAll();
 	}
 	
-	@GetMapping("/customer/{idCustomer}")
-	public Customer get(@PathVariable int idCustomer) {
-		return customerService.get(idCustomer);
+	@GetMapping("/customer/{id}")
+	public Customer get(@PathVariable int id) {
+		return customerService.get(id);
 	}
 	
 	@PostMapping(value="/customer/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

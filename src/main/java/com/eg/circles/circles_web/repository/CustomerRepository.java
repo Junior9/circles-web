@@ -8,4 +8,5 @@ import com.eg.circles.circles_web.model.Customer;
 @Repository	
 public interface CustomerRepository extends CrudRepository<Customer, String> {
 
+	Customer findById(int id);
 }

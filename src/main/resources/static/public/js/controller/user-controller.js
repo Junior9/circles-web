@@ -1,4 +1,4 @@
-angular.module('circles-main').controller('UserController',function ($scope, $http, $location,sessionService){
+angular.module('circles-main').controller('UserController',function ($scope, $http, $location){
 	
 	$scope.user = {};
 	$scope.message = '';
@@ -23,7 +23,6 @@ angular.module('circles-main').controller('UserController',function ($scope, $ht
 		});		
 	}
 	
-	
 	$scope.save = function(){
 		$http.post('/user/save',$scope.user)
 		.success(function(user){
@@ -37,7 +36,7 @@ angular.module('circles-main').controller('UserController',function ($scope, $ht
 				$location.path("/circles");
 			}
 		})
-		.catch(function(error){
+		.catch(function(error){;
 			console.log(error);
 			$location.path("/circles");
 		});		

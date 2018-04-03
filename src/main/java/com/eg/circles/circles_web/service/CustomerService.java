@@ -16,8 +16,8 @@ public class CustomerService {
 		return  customerRepository.findAll();
 	}
 
-	public Customer get(int idCustomer) {
-		return customerRepository.findOne(String.valueOf(idCustomer));
+	public Customer get(int id) {
+		return customerRepository.findById(id);
 	}
 
 	public Customer save(Customer customer) {

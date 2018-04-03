@@ -4,13 +4,13 @@
 		<ol class="breadcrumb">
 		  <li>Home</li>
 		  <li><a href="#/circles/home/customer">Customer</a></li>
-		  <li class="active">Add customer</li>
+		  <li class="active">{{customer.name}}</li>
 		</ol>
 		
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<h1>New customer</h1>
+				<h1>{{customer.name}}</h1>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -19,7 +19,7 @@
 			<div class="col-md-4"></div>
 		
 			<div class="col-md-4">
-				<form method="post" ng-submit="save()" role="formCustomer">	
+				<form method="post" ng-submit="save()" role="formEditeCustomer">	
 						
 					<div class="form-group">
 						<label for="customerName">Name</label>

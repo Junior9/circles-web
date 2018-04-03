@@ -1,17 +1,15 @@
-angular.module('circles-main').controller('EmployeerController',function ($scope, $http,$location){
+angular.module('circles-main').controller('EmployeerEditeController',function ($scope, $http,$location){
 
 	$scope.employeer = {};
-	$scope.employeers = {};
 	$scope.message = '';
+	$scope.id = {};
 	
-	
-	$http.get('/employeer/all/')
-	.success(function(employeers){
-		$scope.employeers = employeers;
+	$http.get('/employeer/1')
+	.success(function(employeer){
+		$scope.employeer = employeer;
 	})
 	.catch(function(error){
 		console.log(error)
-	
 	});
 	
 	$scope.save = function(){
@@ -32,24 +30,6 @@ angular.module('circles-main').controller('EmployeerController',function ($scope
 			console.log(error);
 			$location.path("/circles/home/employeer");
 		});		
-	}
-	
-	$scope.delete = function(id){
-		
-		$http.delete('/employeer/delete/' + id)
-		.success(function(){
-			$location.path("circles/home/employeer");
-		})
-		.catch(function(error){
-			console.log(error)	
-			$location.path("circles/home/employeer");
-		});		
-	}
-	
-	
-	$scope.update = function(id){
-		//sessionServive.set('idEmployeer',id);
-		$location.path("/circles/employeer/edite");
 	}
 	
 });

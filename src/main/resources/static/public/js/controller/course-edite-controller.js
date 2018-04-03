@@ -1,17 +1,16 @@
-angular.module('circles-main').controller('CourseController',function ($scope, $http,$location){
-	
-	$scope.course = {};
-	$scope.courses = {};
-	$scope.message = '';
+angular.module('circles-main').controller('CourseEditeController',function ($scope, $http,$location){
 
-	$http.get('/course/all/')
-	.success(function(courses){
-		$scope.courses = courses;
+	$scope.course = {};
+	$scope.message = '';
+	$scope.id = {};
+	
+	$http.get('/course/1')
+	.success(function(course){
+		$scope.course = course;
 	})
 	.catch(function(error){
 		console.log(error)
-	});	
-
+	});
 	
 	$scope.save = function(){
 		$http.post('/course/save',$scope.course)
@@ -31,11 +30,6 @@ angular.module('circles-main').controller('CourseController',function ($scope, $
 			console.log(error);
 			$location.path("/circles/home/course");
 		});		
-	}
-	
-	$scope.update = function(){
-		
-		$location.path("/circles/course/edite");
 	}
 	
 });

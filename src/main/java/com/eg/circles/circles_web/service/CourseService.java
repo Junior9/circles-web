@@ -23,9 +23,8 @@ public class CourseService {
 		return courseRepository.findAll();
 	}
 
-	public Course get(int idCourse) {
-		// TODO Auto-generated method stub
-		return null;
+	public Course get(int id) {
+		return courseRepository.findById(id);
 	}
 
 	public Course save(CourseETO courseEto) {

@@ -1,17 +1,16 @@
-angular.module('circles-main').controller('RoomController',function ($scope, $http, $location){
+angular.module('circles-main').controller('RoomEditeController',function ($scope, $http,$location){
 
 	$scope.room = {};
-	$scope.rooms = {};
-	$scope.mensage = '';
+	$scope.message = '';
+	$scope.id = {};
 	
-	$http.get('/room/all/')
-	.success(function(rooms){
-		$scope.rooms = rooms;
+	$http.get('/room/1')
+	.success(function(room){
+		$scope.room = room;
 	})
 	.catch(function(error){
 		console.log(error)
-	});	
-	
+	});
 	
 	$scope.save = function(){
 		$http.post('/room/save',$scope.room)
@@ -19,7 +18,7 @@ angular.module('circles-main').controller('RoomController',function ($scope, $ht
 			$scope.room = room;
 			
 			if($scope.room.name != ""){
-				console.log("New room : " + $scope.room.tenant );
+				console.log("New room : " + $scope.room.name );
 				//sessionService.set('manager',user.id);
 				$location.path("/circles/home/room");
 			}else{
@@ -30,10 +29,7 @@ angular.module('circles-main').controller('RoomController',function ($scope, $ht
 		.catch(function(error){
 			console.log(error);
 			$location.path("/circles/home/room");
-		});
+		});		
 	}
 	
-	$scope.update = function(){
-		$location.path("/circles/room/edite");
-	}
 });

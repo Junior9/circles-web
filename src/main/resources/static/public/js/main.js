@@ -8,7 +8,7 @@
 	 	 
 	 $routeProvider.when('/circles/home/customer', {
          templateUrl: 'public/partials/circles-customer.html',
-         controller: 'HomeController'
+         controller: 'CustomerController'
      });	 
 	 
 	 $routeProvider.when('/circles/home/employeer', {
@@ -35,6 +35,11 @@
 	 
 	 
 	 //Add and edit 
+
+	 $routeProvider.when('/circles/home/room/perfil', {
+         templateUrl: 'public/partials/circles-add-room.html',
+         controller: 'RoomController'
+     });
 	 
 	 $routeProvider.when('/circles/home/customer/perfil', {
          templateUrl: 'public/partials/circles-add-customer.html',
@@ -60,7 +65,28 @@
          templateUrl: 'public/partials/circles-add-user.html',
          controller: 'UserController'
      });
+	
+	 
+	 $routeProvider.when('/circles/course/edite', {
+         templateUrl: 'public/partials/circles-edite-course.html',
+         controller: 'CourseEditeController'
+     });	 
+	 
+	 $routeProvider.when('/circles/customer/edite', {
+         templateUrl: 'public/partials/circles-edite-customer.html',
+         controller: 'CustomerEditeController'
+     });	 
+	 
+	 $routeProvider.when('/circles/employeer/edite', {
+         templateUrl: 'public/partials/circles-edite-employeer.html',
+         controller: 'EmployeerEditeController'
+     });
+	 
+	 $routeProvider.when('/circles/room/edite', {
+         templateUrl: 'public/partials/circles-edite-room.html',
+         controller: 'RoomEditeController'
+     });
 	 
 	 //$routeProvider.otherwise({redirectTo:'/home'});
 	
-});  	
+});

@@ -1,23 +1,18 @@
-angular.module('circles-main').controller('CustomerController',function ($scope, $http,$location,$route){
-	
+angular.module('circles-main').controller('CustomerEditeController',function ($scope, $http,$location){
+
 	$scope.customer = {};
-	$scope.customers = {};
+	$scope.message = '';
+	$scope.id = {};
 	
-	$http.get('customer/all')
-	.success(function(customers){	
-		$scope.customers = customers;
-		console.log("[Customer finded");
+	$http.get('/customer/1')
+	.success(function(customer){
+		$scope.customer = customer;
 	})
 	.catch(function(error){
-		console.log("Error to find customers ");
 		console.log(error)
-	});	
-	
+	});
 	
 	$scope.save = function(){
-		
-		console.log($scope.customer.name);
-		
 		$http.post('/customer/save',$scope.customer)
 		.success(function(customer){
 			$scope.customer = customer;
@@ -35,11 +30,6 @@ angular.module('circles-main').controller('CustomerController',function ($scope,
 			console.log(error);
 			$location.path("/circles/home/customer");
 		});		
-	}
-	
-	$scope.update = function(id){
-		//sessionServive.set('idCustomer',id);
-		$location.path("/circles/customer/edite");
 	}
 	
 });

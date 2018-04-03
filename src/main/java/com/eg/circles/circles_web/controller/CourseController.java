@@ -20,7 +20,7 @@ public class CourseController {
 	
 	@GetMapping("/course/all")
 	public Iterable<Course> getAll() {
-		return courseService.getAllCourse();
+		return courseService.getAllCourse();	
 	}
 	
 	@GetMapping("/course/{idCourse}")

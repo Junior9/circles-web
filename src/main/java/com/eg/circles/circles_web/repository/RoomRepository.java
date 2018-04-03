@@ -8,4 +8,6 @@ import com.eg.circles.circles_web.model.Room;
 @Repository
 public interface RoomRepository extends CrudRepository<Room, String> {
 
+	Room findById(int id);
+
 }

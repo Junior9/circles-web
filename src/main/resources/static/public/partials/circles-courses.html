@@ -11,6 +11,10 @@
 	</div>
 
 	<div class="row">
+	
+		<label for="filterName'"> Filter </label>
+		<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">
+	
 		<table class="table  table-striped">
 			<tr>
 				<td class="">Name</td>
@@ -18,10 +22,6 @@
 				<td class="">Numer Studens </td>
 				<td class="">Shedule</td>
 			</tr>
-			
-			<label for="filterName'"> Filter </label>
-			<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">
-
 			<tr ng-repeat="course in courses | filter : filterName">
 				<td>
 					<a ng-click="update(course.id)"> {{course.name}} </a>

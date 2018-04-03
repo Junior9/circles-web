@@ -7,5 +7,5 @@ import com.eg.circles.circles_web.model.Course;
 
 @Repository
 public interface CourseRepository extends CrudRepository<Course, String> {
-
+	Course findById(int id);
 }
