@@ -3,17 +3,19 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	$scope.customer = {};
 	$scope.message = '';
 	$scope.id = {};
-	$scope.listPayment = {};
+	$scope.payments = {};
+	$scope.idCourse = {};
 	
 	$http.get('/customer/1')
 	.success(function(customer){
 		$scope.customer = customer;
-		angular.extend($scope.listPayment,[Array, customer.payments]);
+		$scope.monthPayment();
 	})
 	.catch(function(error){
 		console.log(error)
 	});
 		
+	
 	$scope.save = function(){
 		$http.post('/customer/save',$scope.customer)
 		.success(function(customer){
@@ -34,31 +36,36 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 		});		
 	}
 	
-	$scope.pay = function(id,month){
-		
-		$http.get('/customer/pay/' + id + '/' + month)
-		.success(function(){
-			//console.log(message);
-			//$scope.message = message;
-			//$route.reload();
-			window.location.reload();
+	$scope.monthPayment = function(){
+	
+		$http.get('/customer/payment/1/1')    //+ id + '/' + idCourse)
+		.success(function(payment){
+			$scope.payment = payment;
 		})	
 		.catch(function(error){
-			//console.log(error)
+			console.log(error)
 		});
-		
 	}
 	
-	$scope.clearPayment = function(id,month){
-		$http.get('/customer/pay/clean/' + id + '/' + month)
+	$scope.pay = function(iduser,idCourse,month){
+		
+		$http.get('/customer/pay/'+iduser+'/'+idCourse +'/'+ month)
 		.success(function(){
 			window.location.reload();
 		})	
 		.catch(function(error){
 			console.log(error)
 		});
-
+		
 	}
 	
-	
+	$scope.clearPayment = function(iduser,idCourse,month){
+		$http.get('/customer/pay/clean/'+iduser+'/'+idCourse +'/'+ month)
+		.success(function(){
+			window.location.reload();
+		})	
+		.catch(function(error){
+			console.log(error)
+		});
+	}
 });

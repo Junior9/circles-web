@@ -15,7 +15,7 @@ public class AccountingController {
 	@Autowired
 	private CourseService courseService;
 	
-	@GetMapping("")
+	@GetMapping("/accounting/all/")
 	public List<Course> get(){
 		return null;
 	}	

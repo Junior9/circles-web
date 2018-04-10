@@ -10,13 +10,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eg.circles.circles_web.model.Customer;
+import com.eg.circles.circles_web.model.Payment;
 import com.eg.circles.circles_web.service.CustomerService;
+import com.eg.circles.circles_web.service.PaymentService;
 
 @RestController
 public class CustomerController {
 
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private PaymentService paymentService;
+	
 	
 	@GetMapping("/customer/all")
 	public Iterable<Customer> getAll() {
@@ -28,20 +34,22 @@ public class CustomerController {
 		return customerService.get(id);
 	}
 	
-	@GetMapping("/customer/pay/{id}/{month}")
-	public void payPayment(@PathVariable int id,@PathVariable int month) {
-		if (customerService.Paypayment(id,month)){
-			//return "Payment successs";
-		}
-		//return "Failed payment";
+	
+	@GetMapping("/customer/payment/{id}/{idCourse}")
+	public Payment payment(@PathVariable int id,@PathVariable int idCourse) {
+		return paymentService.get(id,idCourse);
 	}
 	
-	@GetMapping("/customer/pay/clean/{id}/{month}")
-	public void cleanPayment(@PathVariable int id,@PathVariable int month) {
-		if (customerService.CleanPaypayment(id,month)){
-			//return "Payment successs";
+	@GetMapping("/customer/pay/{id}/{idCourse}/{month}")
+	public void payPayment(@PathVariable int id,@PathVariable int idCourse,@PathVariable int month) {
+		if (customerService.Paypayment(id,idCourse,month)){
 		}
-		//return "Failed payment";
+	}
+	
+	@GetMapping("/customer/pay/clean/{id}/{idCourse}/{month}")
+	public void cleanPayment(@PathVariable int id,@PathVariable int idCourse,@PathVariable int month) {
+		if (customerService.CleanPayment(id,idCourse,month)){
+		}
 	}
 
 	@PostMapping(value="/customer/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

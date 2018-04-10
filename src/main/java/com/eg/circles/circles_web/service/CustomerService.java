@@ -1,20 +1,26 @@
 package com.eg.circles.circles_web.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.eg.circles.circles_web.model.Course;
 import com.eg.circles.circles_web.model.Customer;
 import com.eg.circles.circles_web.model.Payment;
+import com.eg.circles.circles_web.repository.CourseRepository;
 import com.eg.circles.circles_web.repository.CustomerRepository;
+import com.eg.circles.circles_web.repository.PaymentRepository;
 
 @Service
 public class CustomerService {
 
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private PaymentRepository paymentRepository;
+	
+	@Autowired
+	private CourseRepository courseRepository;
 	
 	public Iterable<Customer> getAll() {
 		return  customerRepository.findAll();
@@ -24,37 +30,42 @@ public class CustomerService {
 		return customerRepository.findById(id);
 	}
 
-	public Customer save(Customer customer) {
-//		if (customer.getId() == 0 ) {
-//			customer.setPayments(getEmpetyListPayment());
-//		}
-		return customerRepository.save(customer);
-	}
+	public Customer save(Customer customerForm) {
 
-	private List<Payment> getEmpetyListPayment() {
-		List<Payment> payment = new ArrayList<Payment>(12);
-		
-		for(int index = 0; index < 12; index++) {
-			payment.add(new Payment(false));
-		}	
-		return payment;
+		if (customerForm.getId() == 0) {
+			Customer customer = customerRepository.save(customerForm);
+			Payment payment =  new Payment(customer, customer.getCourse(),customer.getPayment() );
+			paymentRepository.save(payment);		
+			return customer;
+		}else {
+			Customer customer = customerRepository.save(customerForm);
+			Payment payment =  paymentRepository.findByCustomerAndCourse(customer, customer.getCourse());
+			
+			if(customer.getPayment() != payment.getPayment()) {
+				payment.setPayment(customer.getPayment());
+				paymentRepository.save(payment);
+			}
+			return customer;
+		}
 	}
 
 	public void delete(int idCustomer) {
 		customerRepository.delete(String.valueOf(idCustomer));
 	}
 
-	public Boolean Paypayment(int id, int month) {
+	public Boolean Paypayment(int id, int idCourse, int month) {
 		Customer customer =  customerRepository.findById(id);
-		customer.getPayments()[month] = 1;
-		customerRepository.save(customer);
-		return customer != null;
+		Course course =  courseRepository.findById(idCourse);
+		Payment payment = paymentRepository.findByCustomerAndCourse(customer, course);
+		payment.getPayments()[month] = 1;
+		return paymentRepository.save(payment) != null;
 	}
-
-	public boolean CleanPaypayment(int id, int month) {
+	
+	public Boolean CleanPayment(int id, int idCourse, int month) {
 		Customer customer =  customerRepository.findById(id);
-		customer.getPayments()[month] = 0;
-		customerRepository.save(customer);
-		return customer != null;
+		Course course =  courseRepository.findById(idCourse);
+		Payment payment = paymentRepository.findByCustomerAndCourse(customer, course);
+		payment.getPayments()[month] = 0;
+		return paymentRepository.save(payment) != null;
 	}
 }
