@@ -20,7 +20,7 @@
 				<td class="">Course</td>
 				<td class="">Level</td>
 				<td class="">Phone Number</td>
-				<td class="">Inf.</td>
+				<td class="">Month Payment</td>
 			</tr>
 			
 			<tr ng-repeat="customer in customers | filter : filterName">
@@ -32,7 +32,7 @@
 				<td>{{customer.phoneNumber}}</td>
 				
 				<td class="">
-					<a href="#"> 
+					<a ng-click="customerPayment(customer.id)"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 					</a>
 				</td>

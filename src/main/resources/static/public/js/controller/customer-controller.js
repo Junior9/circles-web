@@ -42,4 +42,9 @@ angular.module('circles-main').controller('CustomerController',function ($scope,
 		$location.path("/circles/customer/edite");
 	}
 	
+	
+	$scope.customerPayment = function(id){
+		//sessionServive.set('idCustomerPayment',id);
+		$location.path("/circles/home/payment");
+	}
 });

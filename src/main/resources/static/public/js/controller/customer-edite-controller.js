@@ -3,15 +3,17 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	$scope.customer = {};
 	$scope.message = '';
 	$scope.id = {};
+	$scope.listPayment = {};
 	
 	$http.get('/customer/1')
 	.success(function(customer){
 		$scope.customer = customer;
+		angular.extend($scope.listPayment,[Array, customer.payments]);
 	})
 	.catch(function(error){
 		console.log(error)
 	});
-	
+		
 	$scope.save = function(){
 		$http.post('/customer/save',$scope.customer)
 		.success(function(customer){
@@ -31,5 +33,32 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 			$location.path("/circles/home/customer");
 		});		
 	}
+	
+	$scope.pay = function(id,month){
+		
+		$http.get('/customer/pay/' + id + '/' + month)
+		.success(function(){
+			//console.log(message);
+			//$scope.message = message;
+			//$route.reload();
+			window.location.reload();
+		})	
+		.catch(function(error){
+			//console.log(error)
+		});
+		
+	}
+	
+	$scope.clearPayment = function(id,month){
+		$http.get('/customer/pay/clean/' + id + '/' + month)
+		.success(function(){
+			window.location.reload();
+		})	
+		.catch(function(error){
+			console.log(error)
+		});
+
+	}
+	
 	
 });

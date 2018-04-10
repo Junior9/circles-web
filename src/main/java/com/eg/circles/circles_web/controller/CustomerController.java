@@ -28,6 +28,22 @@ public class CustomerController {
 		return customerService.get(id);
 	}
 	
+	@GetMapping("/customer/pay/{id}/{month}")
+	public void payPayment(@PathVariable int id,@PathVariable int month) {
+		if (customerService.Paypayment(id,month)){
+			//return "Payment successs";
+		}
+		//return "Failed payment";
+	}
+	
+	@GetMapping("/customer/pay/clean/{id}/{month}")
+	public void cleanPayment(@PathVariable int id,@PathVariable int month) {
+		if (customerService.CleanPaypayment(id,month)){
+			//return "Payment successs";
+		}
+		//return "Failed payment";
+	}
+
 	@PostMapping(value="/customer/save",consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Customer save(@RequestBody Customer customer) {
 		return customerService.save(customer);

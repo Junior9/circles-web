@@ -31,7 +31,10 @@
          controller: 'AccountingController'
      });	 
 	 
-	 
+	 $routeProvider.when('/circles/home/payment', {
+         templateUrl: 'public/partials/circles-customer-payment.html',
+         controller: 'CustomerEditeController'
+     });	 
 	 
 	 
 	 //Add and edit 
