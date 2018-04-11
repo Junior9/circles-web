@@ -6,7 +6,7 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	$scope.payments = {};
 	$scope.idCourse = {};
 	
-	$http.get('/customer/1')
+	$http.get('/customer/8')
 	.success(function(customer){
 		$scope.customer = customer;
 		$scope.monthPayment();
@@ -38,7 +38,7 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	
 	$scope.monthPayment = function(){
 	
-		$http.get('/customer/payment/1/1')    //+ id + '/' + idCourse)
+		$http.get('/customer/payment/8/3')    //+ id + '/' + idCourse)
 		.success(function(payment){
 			$scope.payment = payment;
 		})	

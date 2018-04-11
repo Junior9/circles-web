@@ -1,5 +1,7 @@
 package com.eg.circles.circles_web.model;
 
+import java.util.Calendar;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +24,7 @@ public class Payment {
 	private Double payment;
 	private Integer[] payments;
 	private Double totalPay;
+	private String year;
 	
 	public Payment() {
 		payments = new Integer[12];
@@ -32,6 +35,7 @@ public class Payment {
 		this.customer = customer;
 		this.payment = payment;
 		payments = new Integer[12];
+		this.year = String.valueOf(Calendar.getInstance().get(Calendar.YEAR)) ;
 	}
 	public Double getPay() {
 		return totalPay;
@@ -59,5 +63,8 @@ public class Payment {
 	}
 	public void setPayment(Double payment) {
 		this.payment = payment;
+	}
+	public String getYear() {
+		return this.year;
 	}
 }

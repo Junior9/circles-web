@@ -10,5 +10,7 @@ public interface PaymentRepository extends CrudRepository<Payment, String> {
 	
 	Payment findById(int id);
 	
+	Iterable<Payment> findByYear(String year);
+	
 	Payment findByCustomerAndCourse(Customer customer,Course course);
 }

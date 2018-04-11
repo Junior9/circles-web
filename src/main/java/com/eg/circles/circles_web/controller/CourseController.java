@@ -32,9 +32,4 @@ public class CourseController {
 	public Course save(@RequestBody Course course) {
 		return courseService.save(course);
 	}
-
-	@DeleteMapping("/course/delete/{idCourse}")
-	public void delete(@PathVariable int idCourse) {
-		courseService.delete(idCourse);
-	}
 }
