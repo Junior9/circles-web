@@ -1,4 +1,4 @@
-		angular.module('circles-main', ['ngRoute','ngResource','menu','header','employeerService','sessionServive'])
+angular.module('circles-main', ['ngRoute','ngResource','ngCookies','menu','header','employeerService'])
 .config(function($routeProvider,$locationProvider) {
 	
 	 $routeProvider.when('/circles', {
@@ -6,7 +6,7 @@
          controller: 'UserController'
      });	 
 	 	 
-	 $routeProvider.when('/circles/home/customer', {
+	 $routeProvider.when('/circles/home/customer', {	
          templateUrl: 'public/partials/circles-customer.html',
          controller: 'CustomerController'
      });	 

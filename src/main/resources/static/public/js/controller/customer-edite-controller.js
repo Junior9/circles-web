@@ -1,25 +1,20 @@
-angular.module('circles-main').controller('CustomerEditeController',function ($scope, $http,$location){
+angular.module('circles-main').controller('CustomerEditeController',function ($scope, $http,$location, $rootScope){
 
 	$scope.customer = {};
 	$scope.message = '';
-	$scope.id = {};
 	$scope.payments = {};
 	$scope.idCourse = {};
 	
-//	$scope.id = sessionService.get('user');
-//	
-//	console.log("User in section " + $scopo.id );
+	$scope.customer.id = $rootScope.customer.id;
 	
-	
-	$http.get('/customer/8')
+	$http.get('/customer/'+ $scope.customer.id)
 	.success(function(customer){
 		$scope.customer = customer;
-		$scope.monthPayment();
+		$scope.monthPayment($scope.customer.id,$scope.customer.course.id);
 	})
 	.catch(function(error){
 		console.log(error)
 	});
-		
 	
 	$scope.save = function(){
 		$http.post('/customer/save',$scope.customer)
@@ -41,9 +36,9 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 		});		
 	}
 	
-	$scope.monthPayment = function(){
+	$scope.monthPayment = function(idCustomer,idCourse){
 	
-		$http.get('/customer/payment/8/3')    //+ id + '/' + idCourse)
+		$http.get('/customer/payment/'+idCustomer+'/'+idCourse)
 		.success(function(payment){
 			$scope.payment = payment;
 		})	
@@ -56,7 +51,7 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 		
 		$http.get('/customer/pay/'+iduser+'/'+idCourse +'/'+ month)
 		.success(function(){
-			window.location.reload();
+			$scope.payment.payments[month] = 1;
 		})	
 		.catch(function(error){
 			console.log(error)
@@ -67,7 +62,7 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	$scope.clearPayment = function(iduser,idCourse,month){
 		$http.get('/customer/pay/clean/'+iduser+'/'+idCourse +'/'+ month)
 		.success(function(){
-			window.location.reload();
+			$scope.payment.payments[month] = 0;
 		})	
 		.catch(function(error){
 			console.log(error)

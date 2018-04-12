@@ -1,4 +1,4 @@
-angular.module('circles-main').controller('UserController',function ($scope, $http, $location){
+angular.module('circles-main').controller('UserController',function ($scope, $http, $location, $rootScope){
 	
 	$scope.user = {};
 	$scope.message = '';
@@ -9,7 +9,14 @@ angular.module('circles-main').controller('UserController',function ($scope, $ht
 			$scope.user = user;
 			if($scope.user.login != ""){
 				console.log("User login : " + $scope.user.login );
-//				sessionService.set('user',user.id);
+				
+				//sessionStorage.setItem(key,value);
+				
+				$rootScope.user = {
+                    id: user.id,
+                    adm: user.isAdm
+	            };
+				
 				$location.path("/circles/home/customer");
 			}else{
 				console.log("User not found");
@@ -29,7 +36,6 @@ angular.module('circles-main').controller('UserController',function ($scope, $ht
 			$scope.user = user;
 			if($scope.user.login != ""){
 				console.log("New user : " + $scope.user.login );
-				//sessionService.set('manager',user.id);
 				$location.path("/circles/home/customer");
 			}else{
 				console.log("Erro at are save user");

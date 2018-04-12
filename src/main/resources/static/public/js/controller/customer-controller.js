@@ -1,7 +1,8 @@
-angular.module('circles-main').controller('CustomerController',function ($scope, $http,$location,$route){
+angular.module('circles-main').controller('CustomerController',function ($scope, $http,$location,$rootScope){
 	
 	$scope.customer = {};
 	$scope.customers = {};
+	$scope.user = {};
 	
 	$http.get('customer/all')
 	.success(function(customers){	
@@ -38,13 +39,12 @@ angular.module('circles-main').controller('CustomerController',function ($scope,
 	}
 	
 	$scope.update = function(id){
-		//sessionServive.set('customer',id);
+		$rootScope.customer = { id: id};
 		$location.path("/circles/customer/edite");
 	}
 	
-	
 	$scope.customerPayment = function(id){
-		//sessionServive.set('idCustomerPayment',id);
+		$rootScope.customer = { id: id};		
 		$location.path("/circles/home/payment");
 	}
 });
