@@ -1,14 +1,13 @@
-angular.module('circles-main').controller('HomeController',function ($scope, $http, $location){
-	$scope.manager = {};
+angular.module('circles-main').controller('HomeController',function ($scope, $http, $location,sessionServive){
+	$scope.user = {};
 	$scope.mensagem = '';
 
 	$scope.login = function(){
-		$http.post('/login',$scope.manager)
-		.success(function(manager){
-			$scope.manager = manager;
+		$http.post('/login',$scope.user)
+		.success(function(user){
+			$scope.user = user;
 			$scope.mensagem = "Login realizado";
-//			sessionService.set('manager',manager.id);
-
+			sessionService.set('user',user.id);
 			switch(user.isAdm) {
 			    case 1:
 			    	$location.path("/adm/home");
@@ -21,7 +20,7 @@ angular.module('circles-main').controller('HomeController',function ($scope, $ht
 			    default:
 			    	console.log("[ERROR] - Perfil nao encontrado: " + user.perfil );
 			}				
-			console.log("[Action - login] [login : " + $scope.manager.login + "]");
+			console.log("[Action - login] [login : " + $scope.user.login + "]");
 		})
 		.catch(function(error){
 			console.log(error)

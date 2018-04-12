@@ -1,4 +1,4 @@
-	angular.module('circles-main', ['ngRoute','ngResource','menu','header'])
+		angular.module('circles-main', ['ngRoute','ngResource','menu','header','employeerService','sessionServive'])
 .config(function($routeProvider,$locationProvider) {
 	
 	 $routeProvider.when('/circles', {

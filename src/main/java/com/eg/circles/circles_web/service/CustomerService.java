@@ -31,14 +31,17 @@ public class CustomerService {
 	}
 
 	public Customer save(Customer customerForm) {
-
+		Customer customer = null;
 		if (customerForm.getId() == 0) {
-			Customer customer = customerRepository.save(customerForm);
+			customer = customerRepository.save(customerForm);
 			Payment payment =  new Payment(customer, customer.getCourse(),customer.getPayment() );
 			paymentRepository.save(payment);		
 			return customer;
 		}else {
-			Customer customer = customerRepository.save(customerForm);
+
+			//customer = customerRepository.findById(customer.getId());
+			
+			customer = customerRepository.save(customerForm);
 			Payment payment =  paymentRepository.findByCustomerAndCourse(customer, customer.getCourse());
 			
 			if(customer.getPayment() != payment.getPayment()) {

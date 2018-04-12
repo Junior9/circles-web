@@ -6,6 +6,11 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	$scope.payments = {};
 	$scope.idCourse = {};
 	
+//	$scope.id = sessionService.get('user');
+//	
+//	console.log("User in section " + $scopo.id );
+	
+	
 	$http.get('/customer/8')
 	.success(function(customer){
 		$scope.customer = customer;
