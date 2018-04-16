@@ -18,6 +18,7 @@ public class Room {
 	private Calendar timeDate;
 	private String course;
 	private String tenant;
+	private Double value;
 
 	public int getId() {
 		return id;
@@ -30,5 +31,8 @@ public class Room {
 	}
 	public String getTenant() {
 		return tenant;
+	}
+	public Double getValue() {
+		return value;
 	}
 }
