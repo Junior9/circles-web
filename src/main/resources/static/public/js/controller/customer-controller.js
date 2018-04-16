@@ -39,7 +39,7 @@ angular.module('circles-main').controller('CustomerController',function ($scope,
 	}
 	
 	$scope.update = function(id){
-		$rootScope.customer = { id: id};
+		sessionStorage.setItem("customer",id);
 		$location.path("/circles/customer/edite");
 	}
 	

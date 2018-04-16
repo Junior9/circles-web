@@ -9,14 +9,8 @@ angular.module('circles-main').controller('UserController',function ($scope, $ht
 			$scope.user = user;
 			if($scope.user.login != ""){
 				console.log("User login : " + $scope.user.login );
-				
-				//sessionStorage.setItem(key,value);
-				
-				$rootScope.user = {
-                    id: user.id,
-                    adm: user.isAdm
-	            };
-				
+				sessionStorage.setItem("user",user.id);
+				sessionStorage.setItem("isADM",user.isAdm);
 				$location.path("/circles/home/customer");
 			}else{
 				console.log("User not found");

@@ -16,7 +16,7 @@ public class User {
 	private int id;
 	private String login;
 	private String password;
-	private Boolean isAdm;
+	private int isAdm;
 	
 	User(){}
 	
@@ -35,11 +35,11 @@ public class User {
 		return password;
 	}
 	
-	public Boolean getIsAdm() {
+	public int getIsAdm() {
 		return isAdm;
 	}
 
-	public void setIsAdm(Boolean isAdm) {
+	public void setIsAdm(int isAdm) {
 		this.isAdm = isAdm;
 	}
 }

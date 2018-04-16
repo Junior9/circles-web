@@ -1,7 +1,7 @@
 angular.module('header',[])
 	.directive('mainHeader',function () {
 		var  ddo = {};	
-		ddo.restrict = 'AE';	
+		ddo.restrict = 'AE';		
 		ddo.scope = {
 			perfil:'@perfil'
 		};

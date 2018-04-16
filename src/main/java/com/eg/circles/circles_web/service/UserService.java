@@ -21,7 +21,7 @@ public class UserService {
 	}
 
 	public User save(User user) {
-		user.setIsAdm(false);
+		user.setIsAdm(0);
 		user = userRepository.save(user);
 		if(user == null){
 			user = new User("","");

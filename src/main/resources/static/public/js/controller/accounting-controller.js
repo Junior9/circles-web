@@ -3,34 +3,38 @@ angular.module('circles-main').controller('AccountingController',function ($scop
 	$scope.courses = {}
 	$scope.months = {}
 	$scope.monthsCourse = {}
+	$scope.isAdm = sessionStorage.getItem("isADM");
 	
-	$http.get('/accounting/all/course')
-	.success(function(courses){
-		$scope.courses = courses;
-		$scope.dasboardCursos();
-	})
-	.catch(function(error){
-		console.log(error)
-	});	
+	if($scope.isAdm == 1){
 	
-	$http.get('accounting/all/months')
-	.success(function(months){
-		$scope.months = months;
-		$scope.dashboardMonth();
-	})
-	.catch(function(error){
-		console.log(error)
-	});	
-	
-	$http.get('accounting/all/months/courses')
-	.success(function(monthsCourse){
-		$scope.monthsCourse = monthsCourse;
-		$scope.dashboardMonthCourse();
-	})
-	.catch(function(error){
-		console.log(error)
-	});	
-	
+		$http.get('/accounting/all/course')
+		.success(function(courses){
+			$scope.courses = courses;
+			$scope.dasboardCursos();
+		})
+		.catch(function(error){
+			console.log(error)
+		});	
+		
+		$http.get('accounting/all/months')
+		.success(function(months){
+			$scope.months = months;
+			$scope.dashboardMonth();
+		})
+		.catch(function(error){
+			console.log(error)
+		});	
+		
+		$http.get('accounting/all/months/courses')
+		.success(function(monthsCourse){
+			$scope.monthsCourse = monthsCourse;
+			$scope.dashboardMonthCourse();
+		})
+		.catch(function(error){
+			console.log(error)
+		});	
+		
+	}
 	
 	$scope.dasboardCursos = function(){
 		

@@ -5,7 +5,7 @@ angular.module('circles-main').controller('CustomerEditeController',function ($s
 	$scope.payments = {};
 	$scope.idCourse = {};
 	
-	$scope.customer.id = $rootScope.customer.id;
+	$scope.customer.id = sessionStorage.getItem("customer");
 	
 	$http.get('/customer/'+ $scope.customer.id)
 	.success(function(customer){
