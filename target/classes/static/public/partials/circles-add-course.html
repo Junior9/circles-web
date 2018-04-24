@@ -1,0 +1,41 @@
+<body>
+	<div class="container">
+	
+		<ol class="breadcrumb">
+		  <li>Home</li>	
+		  <li><a href="	#/circles/home/course/">Course</a></li>
+		  <li class="active">Add course</li>
+		</ol>
+		
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1>New course</h1>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+		
+		<div class="row">	
+			<div class="col-md-4"></div>
+			<div class="col-md-4">	
+				<form  method="post" ng-submit="save()" role="formCourse" >	
+					<div class="form-group">
+						<label for="courseName">Name</label> 
+						<input ng-model="course.name" type="text" class="form-control" id="courseName" name="courseName" placeholder="Name of course">
+					</div>
+					
+					<div class="form-group">
+						<label for="courseTeacher">Teacher</label> 
+						<select name="courseEmployeer" id="courseEmployeer" class="form-control" ng-model="course.employeer" ng-controller="EmployeerController" 
+								ng-options="employeer as (employeer.name | uppercase) for employeer in employeers">
+							<option value="">Select the teacher</option>
+						</select>
+					</div>					
+					
+					<button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
+				</form>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+</body>

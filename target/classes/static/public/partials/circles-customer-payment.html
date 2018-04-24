@@ -1,0 +1,67 @@
+<main-header></main-header>
+
+<body class="">
+
+	<ol class="breadcrumb">
+	  <li>Home</li>
+	  <li><a href="#/circles/home/customer/">Customer</a></li>
+	  <li class="active"> {{customer.name}} </li>
+	</ol>
+
+	<div class="row">
+				
+		<div class="col-md-4">
+			<h3>{{customer.name}} - {{customer.course.name}}</h3>
+		</div>			
+		<div class="col-md-4"></div>
+		<div class="col-md-4"></div>
+	</div>
+		
+	<div class="row">
+				
+		<div class="col-md-4">
+			<h4>Month Payment: {{payment.payment}}</h4>
+		</div>			
+		<div class="col-md-4"></div>
+	
+		<div class="col-md-4"></div>
+	</div>
+	
+	
+	<div class="row">
+		<table class="table  table-striped">
+			<tr>
+				<td class="">January</td>
+				<td class="">February</td>
+				<td class="">March</td>
+				<td class="">April</td>
+				<td class="">May</td>
+				<td class="">June</td>
+				<td class="">July</td>
+				<td class="">August</td>
+				<td class="">September</td>
+				<td class="">October</td>
+				<td class="">November</td>
+				<td class="">December</td>
+			</tr>
+		
+			<tr> 
+				<td ng-repeat="index in [0,1,2,3,4,5,6,7,8,9,10,11]">
+				
+					<div ng-if="payment.payments[index] == null">
+						<a ng-click="pay(customer.id,customer.course.id,index)"> <spam class="glyphicon glyphicon-remove"></spam> </a>
+					</div>
+					
+					<div ng-if="payment.payments[index] == 0">
+						<a ng-click="pay(customer.id,customer.course.id,index)"> <spam class="glyphicon glyphicon-remove"></spam> </a>
+					</div>
+
+					<div ng-if="payment.payments[index] == 1">
+						<a ng-click="clearPayment(customer.id,customer.course.id,index)"> <spam class="glyphicon glyphicon-ok" ></spam>	</a>
+					</div>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+</body>

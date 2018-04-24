@@ -1,51 +1,42 @@
+<main-header></main-header>
 
-
-<ul class="nav nav-tabs row" >
-	<li role="presentation"><img alt="Brand" class="logo" src="public/img/circles-logo.jpg"></li>
-	<li role="presentation" class="active"><a href="/#/circles/home/customer">Customers</a></li>
-	<li role="presentation"><a href="/#/circles/home/employeer">Employeers</a></li>
-	<li role="presentation"><a href="/#/circles/home/room">Rooms</a></li>
-	<li role="presentation"><a href="/#/circles/home/course">Courses</a></li>
-	<li role="presentation"><a href="#">Accounting</a></li>
-</ul>
-
-<body class="">
-	
+<body class="">	
 	<div class="row">
-		<h3>Customers</h3>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h3>Customers</h3>
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 
 	<div class="row">
+	
+		<label for="filterName'"> Filter </label>
+		<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">	
+	
 		<table class="table  table-striped">
 			<tr>
 				<td class="">Name</td>
-				<td class="">Birthday</td>
-				<td class="">MonthlyPayment</td>
-				<td class="">Inf.</td>
+				<td class="">Course</td>
+				<td class="">Level</td>
+				<td class="">Phone Number</td>
+				<td class="">Month Payment</td>
 			</tr>
-
-			<tr>
-				<td class=""><a href="#"> Mohamed </a></td>
-				<td class="">1988/11/14</td>
-				<td class="">Pay</td>
+			
+			<tr ng-repeat="customer in customers | filter : filterName">
+				<td>
+					<a ng-click="update(customer.id)"> {{customer.name}}	</a>
+				</td>
+				<td>{{customer.course.name}}</td>
+				<td>{{customer.level}}</td>
+				<td>{{customer.phoneNumber}}</td>
+				
 				<td class="">
-					<a href="#"> 
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+					<a ng-click="customerPayment(customer.id)"> 
+						<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
 					</a>
 				</td>
 			</tr>
-
-			<tr>
-				<td class=""><a href="#"> Joana</td>
-				<td class="">1988/11/14</td>
-				<td class="">Not pay</td>
-				<td class="">
-					<a href="#"> 
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-					</a>				
-				</td>
-			</tr>
-
 		</table>
 	</div>
 	<a class="btn btn-primary" href="#/circles/home/customer/perfil"> New Customer </a>

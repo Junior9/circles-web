@@ -1,46 +1,43 @@
-
-
-<ul class="nav nav-tabs row" >
-	<li role="presentation"><img alt="Brand" class="logo" src="public/img/circles-logo.jpg"></li>
-	<li role="presentation"><a href="/#/circles/home/customer">Customers</a></li>
-	<li role="presentation"><a href="/#/circles/home/employeer">Employeers</a></li>
-	<li role="presentation"><a href="/#/circles/home/room">Rooms</a></li>
-	<li role="presentation"  class="active"><a href="/#/circles/home/course">Courses</a></li>
-	<li role="presentation"><a href="#">Accounting</a></li>
-</ul>
+<main-header></main-header>
 
 <body class="">
 	
 	<div class="row">
-		<h3>Courses</h3>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h3>Courses</h3>
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 
 	<div class="row">
+	
+		<label for="filterName'"> Filter </label>
+		<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">
+	
 		<table class="table  table-striped">
 			<tr>
 				<td class="">Name</td>
-				<td class="">Room</td>
-				<td class="">Time</td>
+				<td class="">Teacher</td>
+				<td class="">Numer Studens </td>
+				<td class="">Shedule</td>
+			</tr>
+			<tr ng-repeat="course in courses | filter : filterName">
+				<td>
+					<a ng-click="update(course.id)"> {{course.name}} </a>
+				</td>
+				<td>{{course.employeer.name}}</td>
+				
+				<td>{{course.customes.length}}</td>
+				
 				<td class="">
 					<a href="#"> 
 						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 					</a>
 				</td>
 			</tr>
-
-			<tr>
-				<td class=""><a href="#"> Spanish </a></td>
-				<td class="">1</td>
-				<td class="">14:00</td>
-				<td class=""> 
-					<a href="#"> 
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-					</a>
-				</td>
-			</tr>
-
 		</table>
 	</div>
-	<a class="btn btn-primary" href="#/circles/home/customer/perfil"> New Course </a>
+	<a class="btn btn-primary" href="#/circles/home/course/perfil"> New Course </a>
 
 </body>

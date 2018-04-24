@@ -1,26 +1,33 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">	
+      <section class="login-form">
 
-<body class="">
-
-
-	<div class="row">		
-
-		<form class="container">	
-				
-			<div class="form-group">
-				<label for="customerName">Login</label> <input
-					type="text" class="form-control" id="login"
-					placeholder="Login">
+        <form method="post" ng-submit="login()" role="login">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+          			<img src="public/img/circles-logo.jpg" class="img-responsive logo-home" alt="Circles" /> 
+				</div>
+				<div class="col-md-4"></div>
 			</div>
-			
-			<div class="form-group">
-				<label for="customerBirthday">Password</label> <input
-					type="password" class="form-control" id="password"
-					placeholder="Password">
-			</div>
-		
-				
-			<button type="submit" class="btn btn-default">Login</button>
-		</form>
+          <input  ng-model="user.login" type="email" name="login" class="form-control input-lg" id="email" placeholder="Login" required/>
+          
+          <input  ng-model="user.password" type="password" name="password" class="form-control input-lg" id="password" placeholder="Password" required />
+          
+          <div class="pwstrength_viewport_progress"></div>
+          
+          <button type="submit" name="login" class="btn btn-lg btn-primary btn-block">Sign in</button>
+          <div>
+            <a href="#/circles/home/user">Create account</a>
+          </div>
+          
+        </form>
+      </section>  
+     </div>
+     <div class="col-md-4"></div>
 
-	</div>
-</body>
+  </div>
+</div>

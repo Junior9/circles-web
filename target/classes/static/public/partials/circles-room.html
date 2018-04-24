@@ -1,38 +1,43 @@
-<ul class="nav nav-tabs row" >
-	<li role="presentation"><img alt="Brand" class="logo" src="public/img/circles-logo.jpg"></li>
-	<li role="presentation"><a href="/#/circles/home/customer">Customers</a></li>
-	<li role="presentation"><a href="/#/circles/home/employeer">Employeers</a></li>
-	<li role="presentation" class="active"><a href="/#/circles/home/room">Rooms</a></li>
-	<li role="presentation"><a href="/#/circles/home/course">Courses</a></li>
-	<li role="presentation"><a href="#">Accounting</a></li>
-</ul>
+<main-header></main-header>
 
 <body class="">	
 	<div class="row">
-		<h3>Room</h3>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h3>Room</h3>
+		</div>
+		<div class="col-md-4"></div>
 	</div>
 
 	<div class="row">
+		
+		<label for="filterName'"> Filter </label>
+		<input class="form-control" type="text" ng-model="filterName" name="filterName" id="filterName">
+
 		<table class="table  table-striped">
 			<tr>
-				<td class="">Number</td>
+				<td class="">Id</td>
 				<td class="">Course</td>
-<!-- 				<td class="">MonthlyPayment</td> -->
-<!-- 				<td class="info">Inf.</td> -->
-			</tr>
-
-			<tr>
-				<td ><a href="#"> 1 </a></td>
-				<td >Spanish</td>
-<!-- 				<td class="warning">Pay</td> -->
-<!-- 				<td class="info">Inf.</td> -->
+				<td class="">Tenant</td>
+				<td class="">Value</td>
+				<td class="">Shedule</td>
 			</tr>
 			
-			<tr>
-				<td ><a href="#"> 2</td>
-				<td >English</td>
-<!-- 				<td class="warning">Not pay</td> -->
-<!-- 				<td class="info">Inf.</td> -->
+			<tr ng-repeat="room in rooms | filter : filterName">
+				<td>
+					<a ng-click="update(room.id)"> {{room.id}}	</a>
+				</td>
+				<td>{{room.course}}</td>
+				
+				<td>{{room.tenant}}</td>
+				
+				<td>{{room.value}}</td>
+				
+				<td class="">
+					<a href="#"> 
+						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+					</a>
+				</td>
 			</tr>
 
 		</table>
